@@ -77,16 +77,16 @@ class QuizCreator:
             question = input(f"{Style.BRIGHT}{Fore.GREEN}Your Question: {Style.RESET_ALL}").strip()
 
             self.animated_text(" • Enter Option A:", Fore.YELLOW, 0.1)
-            a = input(f"{Style.BRIGHT}{Fore.CYAN}Option A: {Style.RESET_ALL}").strip()
+            option_a = input(f"{Style.BRIGHT}{Fore.CYAN}Option A: {Style.RESET_ALL}").strip()
 
             self.animated_text(" • Enter Option B:", Fore.YELLOW, 0.1)
-            b = input(f"{Style.BRIGHT}{Fore.CYAN}Option B: {Style.RESET_ALL}").strip()
+            option_b = input(f"{Style.BRIGHT}{Fore.CYAN}Option B: {Style.RESET_ALL}").strip()
 
             self.animated_text(" • Enter Option C:", Fore.YELLOW, 0.1)
-            c = input(f"{Style.BRIGHT}{Fore.CYAN}Option C: {Style.RESET_ALL}").strip()
+            option_c = input(f"{Style.BRIGHT}{Fore.CYAN}Option C: {Style.RESET_ALL}").strip()
 
             self.animated_text(" • Enter Option D:", Fore.YELLOW, 0.1)
-            d = input(f"{Style.BRIGHT}{Fore.CYAN}Option D: {Style.RESET_ALL}").strip()
+            option_d = input(f"{Style.BRIGHT}{Fore.CYAN}Option D: {Style.RESET_ALL}").strip()
 
             while True:
                 self.animated_text("✅ Enter the correct answer (A/B/C/D):", Fore.GREEN, 0.1)
@@ -98,10 +98,10 @@ class QuizCreator:
 
             question_data = {
                 'question': question,
-                'a': a,
-                'b': b,
-                'c': c,
-                'd': d,
+                'a': option_a,
+                'b': option_b,
+                'c': option_c,
+                'd': option_d,
                 'answer': answer
             }
 

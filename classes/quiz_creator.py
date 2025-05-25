@@ -127,7 +127,7 @@ class QuizCreator:
                 input("\nPress Enter to return to menu...")
             elif user_choice == '4':
                 self.animated_text("\n🚀 Exiting the program. See you soon!", Fore.MAGENTA, 0.1)
-                sys.exit()
+                break
             else:
                 print(Fore.RED + "❌ Invalid choice. Please try again.")
                 time.sleep(1)

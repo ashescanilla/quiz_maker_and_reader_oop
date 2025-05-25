@@ -1,0 +1,70 @@
+QUESTION: How do you start a comment in Python?
+A. *
+B. //
+C. #
+D. <!
+ANSWER: C
+---
+QUESTION: Which Python data type is used to store a sequence of characters?
+A. int
+B. float
+C. str
+D. list
+ANSWER: C
+---
+QUESTION: Which of the following is a Python keyword?
+A. function
+B. block
+C. method
+D. def
+ANSWER: D
+---
+QUESTION: Which method is used to sort a list in Python?
+A. order()
+B. arrange()
+C. sort()
+D. arranged()
+ANSWER: C
+---
+QUESTION: What does the break statement do in a loop?
+A. It skips the current iteration.
+B. It pauses the loop.
+C. It exits the loop.
+D. It exits the loop entirely.
+ANSWER: D
+---
+QUESTION: Which of the following defines a block of code in Python language?
+A. Brackets
+B. Key
+C. Indention
+D. Colon
+ANSWER: C
+---
+QUESTION: Which of the following is the right file extension of a python source code program?
+A. .c
+B. .obj
+C. .cpp
+D. .py
+ANSWER: D
+---
+QUESTION: Which is assignment operator in python?
+A. ;
+B. :
+C. =
+D. !+
+ANSWER: C
+---
+QUESTION: Which of the following methods can be used to remove an item from a list?
+A. del
+B. remove()
+C. pop()
+D. All of the above
+ANSWER: D
+---
+QUESTION: What is the proper syntax to print "Hello, World!" in Python?
+A. echo("Hello, World!")
+B. output("Hello, World!")
+C. console.log("Hello, World!")
+D. print("Hello, World!")
+ANSWER: D
+---

@@ -54,23 +54,6 @@ class QuizCreator:
             file.writelines(lines[:-7])
         print(Fore.GREEN + "✅ Last question removed successfully!")
 
-    # Display "QUIZ" ASCII Art for flair
-    def print_ascii_art(self):
-        print(Fore.MAGENTA + """
-    .----------------.  .----------------.  .----------------.  .----------------. 
-    | .--------------. || .--------------. || .--------------. || .--------------. |
-    | |    ___       | || | _____  _____ | || |     _____    | || |   ________   | |
-    | |  .'   '.     | || ||_   _||_   _|| || |    |_   _|   | || |  |  __   _|  | |
-    | | /  .-.  \    | || |  | |    | |  | || |      | |     | || |  |_/  / /    | |
-    | | | |   | |    | || |  | '    ' |  | || |      | |     | || |     .'.' _   | |
-    | | \  `-'  \_   | || |   \ `--' /   | || |     _| |_    | || |   _/ /__/ |  | |
-    | |  `.___.\__|  | || |    `.__.'    | || |    |_____|   | || |  |________|  | |
-    | |              | || |              | || |              | || |              | |
-    | '--------------' || '--------------' || '--------------' || '--------------' |
-    '----------------'  '----------------'  '----------------'  '----------------' 
-        """)
-        time.sleep(1)
-
     # Function to add a new question
     def add_question(self):
         while True:
@@ -123,7 +106,6 @@ class QuizCreator:
     def main_menu(self):
         while True:
             self.clear()
-            self.print_ascii_art()
             print(Fore.LIGHTMAGENTA_EX + Style.BRIGHT + "\n📚 Welcome to the Quiz Creator!")
             print(Fore.LIGHTWHITE_EX + "💡 Create your own quiz questions and answers effortlessly with this program!")
             print(Fore.LIGHTMAGENTA_EX + "\nWhat would you like to do?")

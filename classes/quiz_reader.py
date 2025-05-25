@@ -6,7 +6,7 @@ import random
 import sys
 
 class QuizReader:
-    def __init__(self):
+    def __init__(self, file_name = "quiz_data.txt"):
         self.quiz_window = None
         self.timer_reference = None
         self.remaining_time_seconds = 15

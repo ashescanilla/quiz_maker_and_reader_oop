@@ -101,11 +101,16 @@ class QuizReader:
 
     def launch_quiz(self):
         def on_close():
+            if self.timer_reference:
+                self.quiz_window.after_cancel(self.timer_reference)
+                self.timer_reference = None
+
             if messagebox.askyesno("Exit Quiz", f"You scored {self.score_counter} points.\nDo you want to try again?"):
                 self.quiz_window.destroy()
                 self.show_start_screen()
             else:
                 self.quiz_window.destroy()
+
 
         self.quiz_window = tk.Tk()
         self.quiz_window.title("Multiple Choice Quiz")
@@ -145,11 +150,16 @@ class QuizReader:
         next_btn.pack(pady=20)
 
         def exit_quiz():
+            if self.timer_reference:
+                self.quiz_window.after_cancel(self.timer_reference)
+                self.timer_reference = None
+
             if messagebox.askyesno("Quiz Finished", f"You scored {self.score_counter} points.\nDo you want to try again?"):
                 self.quiz_window.destroy()
                 self.show_start_screen()
             else:
                 self.quiz_window.destroy()
+
 
         exit_btn = tk.Button(self.quiz_window, text="Exit", font=("Arial", 12),
                              bg="#f44336", fg="white", activebackground="#c62828", width=20, height=2,

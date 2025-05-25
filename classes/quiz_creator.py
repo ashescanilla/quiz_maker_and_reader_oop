@@ -3,10 +3,12 @@ import time
 from colorama import init, Fore, Style
 import sys
 
+# Initialize Colorama
+init(autoreset=True)
+
 class QuizCreator:
-    def __init__(self):
-        # Initialize Colorama
-        init(autoreset=True)
+    def __init__(self, file_name = "quiz_data.txt"):
+        self.file_name = file_name
     
     # Optional: clear terminal for better UI
     def clear(self):
@@ -20,8 +22,8 @@ class QuizCreator:
         print()
 
     # Function to save question to file
-    def save_question_to_file(self, file_name, question_data):
-        with open(file_name, 'a') as file:
+    def save_question_to_file(self, question_data):
+        with open(self.file_name, 'a') as file:
             file.write(f"QUESTION: {question_data['question']}\n")
             file.write(f"A. {question_data['a']}\n")
             file.write(f"B. {question_data['b']}\n")
@@ -31,24 +33,24 @@ class QuizCreator:
             file.write("---\n")
 
     # Function to view all questions
-    def view_all_questions(self, file_name):
-        if not os.path.exists(file_name):
+    def view_all_questions(self):
+        if not os.path.exists(self.file_name):
             print(Fore.RED + "No questions found! Please add questions first.")
             return
-        with open(file_name, 'r') as file:
+        with open(self.file_name, 'r') as file:
             print(Fore.GREEN + file.read())
 
     # Function to remove a question (basic version that just removes the last question)
-    def remove_last_question(self, file_name):
-        if not os.path.exists(file_name):
+    def remove_last_question(self):
+        if not os.path.exists(self.file_name):
             print(Fore.RED + "No questions to remove!")
             return
-        with open(file_name, 'r') as file:
+        with open(self.file_name, 'r') as file:
             lines = file.readlines()
         if len(lines) < 7:
             print(Fore.RED + "❌ Not enough data to remove a question.")
             return
-        with open(file_name, 'w') as file:
+        with open(self.file_name, 'w') as file:
             file.writelines(lines[:-7])
         print(Fore.GREEN + "✅ Last question removed successfully!")
 
@@ -70,7 +72,7 @@ class QuizCreator:
         time.sleep(1)
 
     # Function to add a new question
-    def add_question(self, file_name):
+    def add_question(self):
         while True:
             self.clear()
             self.animated_text("💭 Enter your question:", Fore.WHITE, 0.1)
@@ -105,22 +107,20 @@ class QuizCreator:
                 'answer': answer
             }
 
-            self.save_question_to_file(file_name, question_data)
+            self.save_question_to_file(question_data)
             self.animated_text("✅ Question saved successfully!", Fore.GREEN, 0.1)
 
             again = input(Fore.CYAN + "➕ Add another question? Enter 1 to continue or 4 to stop: ").strip()
             if again == '4':
                 self.animated_text("\n🚀 Quiz creation finished!", Fore.MAGENTA, 0.1)
-                print(f"{Style.BRIGHT}{Fore.YELLOW}{file_name}{Style.RESET_ALL}")
+                print(f"{Style.BRIGHT}{Fore.YELLOW}{self.file_name}{Style.RESET_ALL}")
                 self.animated_text("\n📄 Showing all saved questions...\n", Fore.LIGHTWHITE_EX, 0.08)
-                self.view_all_questions(file_name)
+                self.view_all_questions()
                 input("\nPress Enter to return to the main menu...")
                 break     
 
     # Function to display the main menu and handle user choices
     def main_menu(self):
-        file_name = "quiz_data.txt"
-
         while True:
             self.clear()
             self.print_ascii_art()
@@ -136,12 +136,12 @@ class QuizCreator:
             user_choice = input(Fore.LIGHTMAGENTA_EX + "\nPick an option (1/2/3/4): ").strip()
 
             if user_choice == '1':
-                self.add_question(file_name)
+                self.add_question()
             elif user_choice == '2':
-                self.remove_last_question(file_name)
+                self.remove_last_question()
                 input("\nPress Enter to return to menu...")
             elif user_choice == '3':
-                self.view_all_questions(file_name)
+                self.view_all_questions()
                 input("\nPress Enter to return to menu...")
             elif user_choice == '4':
                 self.animated_text("\n🚀 Exiting the program. See you soon!", Fore.MAGENTA, 0.1)
